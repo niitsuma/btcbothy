@@ -23,4 +23,4 @@ hy3 trade.hy
 - defn pass -> (do) :do with noting 
 - dict -> assoc : setv and get is better 
 - raise Exception not good translate.
-- elif -> too redundunt translate
+- elif -> too redundunt translated code

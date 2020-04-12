@@ -67,8 +67,7 @@
   (defn send    [self msg]
     (self.ws.send      (json.dumps msg))
     (self.log.debug    (+ "send: " (hy-repr  msg))    ))
-  (defn subscribe    [self ch cb &optional     [auth False]]
-    (assoc self._ch_cb ch cb)
+  (defn subscribe   [self ch cb &optional    [auth False]]   (assoc self._ch_cb ch cb)
     (if auth
         (self.add_after_auth_callback  (fn [] (self._subscribe ch)))
         (self.add_after_open_callback  (fn [] (self._subscribe ch)))))

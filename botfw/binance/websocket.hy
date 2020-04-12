@@ -2,10 +2,10 @@
 (import [botfw.base.websocket [WebsocketBase]])
 (defclass BinanceWebsocket  [WebsocketBase]
   (setv ENDPOINT "wss://stream.binance.com:9443/ws")
-  (defn command  [self op &optional     [args None]     [cb None]]
+  (defn command  [self op &optional [args None]  [cb None]]
     (setv msg  {"method" op  "id" self._request_id})
     (when args   (assoc msg "params" args))
-    (assoc self._request_table self._request_id            (, msg cb))
+    (assoc self._request_table  self._request_id   (, msg cb))
     (+= self._request_id 1)
     (self.send msg))
   (defn _subscribe  [self ch]
